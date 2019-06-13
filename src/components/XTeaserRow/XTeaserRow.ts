@@ -1,5 +1,5 @@
 import Component from '@biotope/element';
-import XButton from '../XButton/index';
+import XButton from '../XButton/XButton';
 import { TeaserRowOptions } from './interfaces/TeaserRowOptions';
 import { TeaserRowState } from './interfaces/TeaserRowState';
 import template from './template';

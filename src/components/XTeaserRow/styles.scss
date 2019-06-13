@@ -1,0 +1,231 @@
+@import '../../resources/scss/defaultImport';
+
+$component-default-color: $black-90;
+$component-default-font-weight: $font-weight-light;
+
+$component-headline-default-font-size: 30px;
+$component-headline-medium-font-size: 34px;
+$component-headline-xxlarge-font-size: 40px;
+
+$component-headline-default-line-height: 38px;
+$component-headline-medium-line-height: 43px;
+$component-headline-xxlarge-line-height: 50px;
+
+$component-text-default-font-size: 16px;
+$component-text-default-line-height: 24px;
+$component-text-default-margin: 30px 0 0 0;
+
+$item-wrapper-default-margin: 40px 0 0 0;
+
+$item-medium-width: 50%;
+$item-border-width: 1px;
+$item-large-width-sides: calc(#{$grid-gutter} * 15 - #{$item-border-width});
+$item-large-width-center: calc(
+  #{$grid-gutter} * 17 + #{$item-border-width} * 2
+);
+$item-background-color: $coolSteel;
+$item-border: $item-border-width solid $white;
+
+$item-headline-default-margin: 60px 0 0 0;
+$item-headline-xxlarge-margin: 80px 0 0 0;
+$item-headline-default-font-size: 26px;
+$item-headline-xxlarge-font-size: 30px;
+$item-headline-default-line-height: 33px;
+$item-headline-xxlarge-line-height: 40px;
+
+$item-text-default-margin: 20px 0 0 0;
+
+$item-xbutton-default-margin: 40px 0 60px 0;
+$item-xbutton-xxlarge-margin: 40px 0 80px 0;
+
+@include host('x-teaser-row') {
+  .teaserRow {
+    color: $component-default-color;
+
+    &__inner {
+      & > h2 {
+        margin: 0;
+
+        font-weight: $component-default-font-weight;
+        font-size: $component-headline-default-font-size;
+        line-height: $component-headline-default-line-height;
+
+        @include breakpoint($medium) {
+          font-size: $component-headline-medium-font-size;
+          line-height: $component-headline-medium-line-height;
+        }
+
+        @include breakpoint($xxlarge) {
+          font-size: $component-headline-xxlarge-font-size;
+          line-height: $component-headline-xxlarge-line-height;
+        }
+      }
+
+      & > p {
+        margin: $component-text-default-margin;
+        font-weight: $component-default-font-weight;
+        font-size: $component-text-default-font-size;
+        line-height: $component-text-default-line-height;
+      }
+
+      @include setFullWidthComponentParameter;
+    }
+
+    &__itemWrapper {
+      overflow: hidden;
+      margin: $item-wrapper-default-margin;
+
+      &Inner {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        @include breakpoint($medium) {
+          flex-direction: row;
+        }
+
+        @include setFullWidthComponentParameter;
+      }
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: $item-background-color;
+      border-bottom: $item-border;
+
+      > * {
+        font-weight: $component-default-font-weight;
+      }
+
+      > h3 {
+        margin: $item-headline-default-margin;
+        font-size: $item-headline-default-font-size;
+        line-height: $item-headline-default-line-height;
+
+        @include breakpoint($xxlarge) {
+          margin: $item-headline-xxlarge-margin;
+          line-height: $item-headline-xxlarge-line-height;
+        }
+      }
+
+      > p {
+        flex-grow: 1;
+        margin: $item-text-default-margin;
+        font-size: $component-text-default-font-size;
+        line-height: $component-text-default-line-height;
+      }
+
+      > x-button {
+        margin: $item-xbutton-default-margin;
+
+        @include breakpoint($xxlarge) {
+          margin: $item-xbutton-xxlarge-margin;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        height: 100%;
+        border-right: 150vw solid $item-background-color;
+        border-left: 50vw solid $item-background-color;
+        z-index: -1;
+        left: -49vw;
+      }
+
+      @include breakpoint($medium) {
+        width: $item-medium-width;
+
+        &:nth-child(2n + 1) {
+          &:before {
+            border-left: none;
+            border-right: 50vw solid $item-background-color;
+            left: -49vw;
+          }
+          padding-right: $grid-gutter * 2;
+        }
+
+        &:nth-child(2n) {
+          &:before {
+            border-right: 50vw solid $item-background-color;
+            border-left: none;
+            right: -49vw;
+          }
+          padding-left: $grid-gutter * 2;
+          border-left: $item-border;
+        }
+      }
+
+      @include breakpoint($large) {
+        width: $item-large-width-sides;
+
+        &:nth-child(3n + 1) {
+          padding-right: $grid-gutter * 2;
+          padding-left: 0;
+          border-left: none;
+          &:before {
+            border-left: 50vw solid $item-background-color;
+            border-right: none;
+            left: -49vw;
+          }
+        }
+
+        &:nth-child(3n) {
+          padding-right: 0;
+          padding-left: $grid-gutter * 2;
+          border-left: none;
+
+          &:before {
+            border-left: 0;
+            border-right: 50vw solid $item-background-color;
+            right: -49vw;
+          }
+        }
+
+        &:nth-child(2),
+        &:nth-child(5),
+        &:nth-child(8) {
+          width: $item-large-width-center;
+          padding-left: $grid-gutter * 2;
+          padding-right: $grid-gutter * 2;
+          border-left: $item-border;
+          border-right: $item-border;
+
+          &:before {
+            content: none;
+          }
+        }
+      }
+
+      &--twoRows {
+        display: none;
+
+        @include breakpoint($medium) {
+          display: block;
+        }
+
+        @include breakpoint($large) {
+          display: none;
+        }
+      }
+
+      &--threeRows {
+        display: none;
+
+        &.teaserRow__item--twoRows {
+          @include breakpoint($medium) {
+            display: block;
+          }
+        }
+
+        @include breakpoint($large) {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../resources/scss/defaultImport';
+
+@include host('x-icon') {
+  font-size: 1em;
+  display: inline;
+  position: relative;
+  line-height: 0;
+  .icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+}

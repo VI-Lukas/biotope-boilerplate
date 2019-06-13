@@ -1,0 +1,267 @@
+@import '../../resources/scss/defaultImport';
+
+@include host(x-dropdown) {
+  $this: &;
+  overflow: hidden;
+
+  .x-dropdown {
+    &__wrap {
+      display: block;
+      position: relative;
+      height: auto;
+      z-index: 1;
+      color: $black-90;
+      font-size: 16px;
+
+      &--tableCell {
+        width: 100%;
+        display: inline-block;
+
+        .x-dropdown__element {
+          border-bottom: none;
+          padding: 0 35px 0 5px;
+          //fix ie11 cutted text
+          margin-right: 5px;
+          height: auto;
+
+          &:focus,
+          &[readonly]:focus {
+            border-bottom: none;
+          }
+
+          &:hover {
+            color: $black-70;
+          }
+
+          &[readonly] {
+            border-bottom: none;
+          }
+
+          @-moz-document url-prefix() {
+            margin-left: 0;
+          }
+        }
+
+        .x-dropdown__label {
+          display: none;
+        }
+
+        .x-dropdown__iconChevron {
+          top: 0;
+          right: 13px;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+
+      &--error {
+        .x-dropdown__label {
+          top: 0;
+          color: $red;
+          font-size: 12px;
+        }
+
+        .x-dropdown__element {
+          border-color: $red;
+          padding-right: 64px;
+
+          &--notEmpty {
+            + .x-dropdown__label {
+              color: $red;
+            }
+          }
+        }
+
+        select:hover.x-dropdown__element,
+        select:focus.x-dropdown__element {
+          border-bottom: 1px solid $red;
+
+          + .x-dropdown__label {
+            color: $red;
+          }
+        }
+      }
+
+      &--readonly,
+      &--disabled {
+        //Fix for IOS Safari to stop triggering event if click on wrapper
+        pointer-events: none;
+
+        &.x-dropdown__wrap {
+          .x-dropdown__iconChevron {
+            color: $black-20;
+          }
+        }
+      }
+    }
+
+    &__element {
+      display: block;
+      padding: 21px 40px 4px 20px;
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      border: 0;
+      outline: 0;
+      border-bottom: 1px solid $black-90;
+      background-color: transparent;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -webkit-border-radius: 0;
+      font-family: $font-family-sans-serif;
+      margin-left: -2px;
+
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        margin-left: 0;
+      }
+
+      @-moz-document url-prefix() {
+        margin-left: -4px;
+      }
+
+      option {
+        padding: 0;
+        &[disabled]:first-child {
+          display: none;
+        }
+      }
+
+      &--notEmpty {
+        + .x-dropdown__label {
+          top: 0;
+          font-size: 12px;
+          color: $black-40;
+        }
+
+        &:hover {
+          + .x-dropdown__label {
+            color: $black-40;
+          }
+        }
+      }
+    }
+
+    &__label {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: $black-40;
+      cursor: text;
+      transition: all 0.2s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 20px;
+      width: calc(100% - 20px);
+      z-index: -1;
+
+      &--required {
+        &:after {
+          content: '*';
+        }
+      }
+    }
+
+    &__error {
+      display: none;
+      padding: 0 20px;
+      font-size: 12px;
+      color: $red;
+
+      &--active {
+        display: block;
+      }
+    }
+
+    &__hint {
+      display: none;
+      padding: 0 20px;
+      font-size: 12px;
+      color: $black-40;
+
+      &--visible {
+        display: block;
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &__iconError {
+      display: none;
+      position: absolute;
+      right: 20px;
+      overflow: hidden;
+      font-size: 24px;
+      top: 13px;
+
+      &--active {
+        display: block;
+      }
+    }
+
+    &__iconChevron {
+      display: block;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      z-index: -1;
+      transform: rotate(0deg);
+      color: $black-40;
+      overflow: hidden;
+
+      &--active {
+        transform: rotate(180deg);
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+
+  select:disabled.x-dropdown__element,
+  select[readonly].x-dropdown__element,
+  select[readonly]:focus.x-dropdown__element {
+    border-bottom: 1px solid $black-20;
+    cursor: not-allowed;
+
+    + .x-dropdown__label {
+      color: $black-20;
+    }
+  }
+
+  select:focus.x-dropdown__element {
+    border-bottom: 1px solid $skyBlue;
+
+    + .x-dropdown__label--floating {
+      top: 0;
+      font-size: 12px;
+      color: $skyBlue;
+    }
+  }
+
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  select[readonly] {
+    pointer-events: none;
+
+    option {
+      display: none;
+    }
+
+    + .x-dropdown__label {
+      top: 0;
+      font-size: 12px;
+      color: $black-20;
+    }
+  }
+}

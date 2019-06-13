@@ -1,0 +1,29 @@
+<!--DEV-Note: Add your content inside the Element.
+	Properties:
+	optional:
+		-headline: A headline from the component itself.-->
+
+<div class="section">
+	<section>
+		<div class="row row--reducedWidth">
+			<div class="col">
+				<h2>Content Box without headline</h2>
+				<x-content-box class="component" data-resources="[{paths: ['components/XContentBox/index.js']}]">
+					<x-dropdown data-resources="[{paths : ['components/XDropdown/index.js']}]" options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'></x-dropdown>
+				</x-content-box>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col">
+				<h2>Content Box with headline</h2>
+				<x-content-box class="component" data-resources="[{paths: ['components/XContentBox/index.js']}]" headline="Content Box with own Headline">
+					<x-dropdown data-resources="[{paths : ['components/XDropdown/index.js']}]" options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'></x-dropdown>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolores esse ex facere fugit impedit iure numquam provident quo sequi. Cumque deleniti eos est ipsam perferendis porro quis veritatis vero.</p>
+				</x-content-box>
+			</div>
+		</div>
+	</section>
+</div>
+
+

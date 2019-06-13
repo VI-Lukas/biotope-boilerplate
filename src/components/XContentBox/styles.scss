@@ -1,0 +1,17 @@
+@import '../../resources/scss/defaultImport';
+
+@include host(x-content-box) {
+  padding: 20px;
+  background-color: $black-4;
+
+  .x-content-box {
+    &__headline {
+      display: block;
+      font-weight: $font-weight-bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: $black-90;
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div class="section">
+	<section>
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown default</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown with reset option</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]' resetable>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown Required State</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" required options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Readonly State</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" readonly options='[{"value":"readonly", "label":"Readonly", "selected": "true"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown Disabled State</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" disabled></x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown Error Message</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" error="Select one option" options='[{"value":"o1", "label":"Option 1", "selected": "true"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown with hint</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" hint="This is a hint message" options='[{"value":"o1", "label":"Option 1", "selected": "true"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+		<div class="row row--reducedWidth">
+			<div class="col col--medium-8">
+				<h2>Dropdown role table-cell</h2>
+				<x-dropdown class="component" data-resources="[{paths : ['components/XDropdown/index.js']}]" role="table-cell" options='[{"value":"o1", "label":"Option 1"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+				<x-dropdown class="component" readonly data-resources="[{paths : ['components/XDropdown/index.js']}]" role="table-cell" options='[{"value":"o1", "label":"Readonly"}, {"value":"o2", "label":"Option 2"}, {"value":"o3", "label":"Option 3"}]'>
+				</x-dropdown>
+			</div>
+		</div>
+
+	</section>
+</div>

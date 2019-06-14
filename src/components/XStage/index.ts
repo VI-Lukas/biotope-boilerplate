@@ -8,7 +8,7 @@ class XStage extends Component<ComponentOptions, ComponentState> {
 		return {
 			headline: "Default Headline",
 			claim: "Default Claim",
-			secondaryColor: true,
+			secondaryColor: false,
 			image: {
 				url: "_assets/XStage/01_ensemblehaus-freiburg-low-res.png",
 				alt: "Default Alt Text",
@@ -21,7 +21,7 @@ class XStage extends Component<ComponentOptions, ComponentState> {
 	static attributes = [
 		"headline",
 		"claim",
-		{ name: "secondaryColor", converter: value => value != null },
+		{ name: "secondary-color", converter: value => value != null },
 		{ name: "image", converter: value => JSON.parse(value) }
 	];
 

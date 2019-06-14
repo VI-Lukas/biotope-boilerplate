@@ -1,42 +1,47 @@
 // component margins
-$spacing_content: 90px;
-$spacing_content_medium: 90px;
-$spacing_content_large: 120px;
-$spacing_content_xxlarge: 120px;
+$spacing_content: 45px;
+$spacing_content_medium: 45px;
+$spacing_content_large: 60px;
+$spacing_content_xxlarge: 60px;
 
 .component-spacing-top {
-  margin-top: $spacing_content;
-  position: relative;
-  @include breakpoint($large) {
-    margin-top: $spacing_content_large;
-  }
+	margin-top: $spacing_content;
+	position: relative;
+
+	@include breakpoint($large) {
+		margin-top: $spacing_content_large;
+	}
 }
 
 .component-spacing-bottom {
-  margin-bottom: $spacing_content;
-  @include breakpoint($large) {
-    margin-bottom: $spacing_content_large;
-  }
+	margin-bottom: $spacing_content;
+
+	@include breakpoint($large) {
+		margin-bottom: $spacing_content_large;
+	}
 }
 
-.component-spacing-bottom + .component-spacing-top {
-  margin-top: $spacing_content * 2;
-  &::before {
-    content: '';
-    width: 100vw;
-    height: 1px;
-    background: $black-10;
-    position: absolute;
-    top: -$spacing_content;
-  }
-  @include breakpoint($large) {
-    margin-top: $spacing_content_large * 2;
-    &::before {
-      top: -$spacing_content_large;
-    }
-  }
+.component-spacing-bottom+.component-spacing-top {
+	margin-top: $spacing_content * 2;
+
+	&::before {
+		content: '';
+		width: 100vw;
+		height: 1px;
+		background: $black-10;
+		position: absolute;
+		top: -$spacing_content;
+	}
+
+	@include breakpoint($large) {
+		margin-top: $spacing_content_large * 2;
+
+		&::before {
+			top: -$spacing_content_large;
+		}
+	}
 }
 
 .breadcrumb-wrapper {
-  padding: 20px 0;
+	padding: 20px 0;
 }

@@ -1,0 +1,137 @@
+@import '../../resources/scss/defaultImport';
+
+$half-grid-gutter: $grid-gutter / 2 !default;
+$something: $content-max-width + $grid-gutter-max;
+$padding: 0 ($content-max-width + $grid-gutter-max) / 94;
+$fontWeight: 300;
+
+$primaryFontColor: $white;
+$secondaryFontColor: $black-90;
+
+$headlineFontSizeXSmall: 36px;
+$headlineFontSizeMedium: 45px;
+$headlineFontSizeXLarge: 60px;
+
+$headlineLineHeightXSmall: 45px;
+$headlineLineHeightMedium: 56px;
+$headlineLineHeightXLarge: 75px;
+
+$claimFontSizeXSmall: 24px;
+$claimFontSizeMedium: 26px;
+$claimFontSizeXLarge: 30px;
+
+$claimLineHeightXSmall: 30px;
+$claimLineHeightMedium: 33px;
+$claimLineHeightXLarge: 40px;
+
+$stageFixedSize: 600px;
+$stageAdditionalBreakpoint: 1600px;
+
+@include host(x-stage) {
+  .stage {
+    position: relative;
+    overflow: hidden;
+
+    &__imageContainer {
+      width: $grid-gutter * 47;
+      padding-top: 75%;
+      background-size: contain;
+
+      @include breakpoint($large) {
+        padding-top: 0;
+        height: $stageFixedSize;
+        background-size: cover;
+      }
+
+      @include breakpoint($stageAdditionalBreakpoint) {
+        height: auto;
+        padding-top: 37.5%;
+      }
+
+      &--alignTop {
+        background-position: top;
+      }
+
+      &--alignBottom {
+        background-position: bottom;
+      }
+
+      &--alignCenter {
+        background-position: center;
+      }
+    }
+
+    &__textWrapper {
+      margin-top: 40px;
+      margin-left: calc(5% - #{$half-grid-gutter});
+      margin-right: calc(5% - #{$half-grid-gutter});
+      padding: 0 $half-grid-gutter;
+
+      @include breakpoint($small) {
+        margin-left: calc(2.5% - #{$half-grid-gutter});
+        margin-right: calc(2.5% - #{$half-grid-gutter});
+      }
+
+      @include breakpoint($large) {
+        margin-top: 0;
+        color: $primaryFontColor;
+        position: absolute;
+        padding: 0 $half-grid-gutter;
+        left: 0;
+        right: 0;
+        top: 98px;
+      }
+
+      @include breakpoint(1400px) {
+        width: 100%;
+        max-width: $content-max-width + $grid-gutter-max;
+        padding: $padding;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      &--colored {
+        color: $secondaryFontColor;
+
+        @include breakpoint($large) {
+          color: $secondaryFontColor;
+        }
+      }
+    }
+
+    &__headline {
+      margin: 0;
+      font-weight: $fontWeight;
+      font-size: $headlineFontSizeXSmall;
+      line-height: $headlineLineHeightXSmall;
+
+      @include breakpoint($medium) {
+        font-size: $headlineFontSizeMedium;
+        line-height: $headlineLineHeightMedium;
+      }
+
+      @include breakpoint($xlarge) {
+        font-size: $headlineFontSizeXLarge;
+        line-height: $headlineLineHeightXLarge;
+      }
+    }
+
+    &__claim {
+      margin: 0;
+      margin-top: 10px;
+      font-weight: $fontWeight;
+      font-size: $claimFontSizeXSmall;
+      line-height: $claimLineHeightXSmall;
+
+      @include breakpoint($medium) {
+        font-size: $claimFontSizeMedium;
+        line-height: $claimLineHeightMedium;
+      }
+
+      @include breakpoint($xlarge) {
+        font-size: $claimFontSizeXLarge;
+        line-height: $claimLineHeightXLarge;
+      }
+    }
+  }
+}

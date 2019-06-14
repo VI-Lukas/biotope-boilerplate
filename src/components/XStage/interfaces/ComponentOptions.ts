@@ -1,7 +1,8 @@
-import { ImageOptions } from './ImageOptions';
-import { TextOptions } from './TextOptions';
+import { ImageOptions } from "./ImageOptions";
 
 export interface ComponentOptions {
-  text: TextOptions;
-  image: ImageOptions;
+	headline: string;
+	claim: string;
+	secondaryColor: boolean;
+	image: ImageOptions;
 }

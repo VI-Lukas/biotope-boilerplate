@@ -1,43 +1,33 @@
-import Component from '@biotope/element';
-import { ComponentOptions } from './interfaces/ComponentOptions';
-import { ComponentState } from './interfaces/ComponentState';
-import template from './template';
+import Component from "@biotope/element";
+import { ComponentOptions } from "./interfaces/ComponentOptions";
+import { ComponentState } from "./interfaces/ComponentState";
+import template from "./template";
 
 class XStage extends Component<ComponentOptions, ComponentState> {
-  protected get defaultProps() {
-    return {
-      text: {
-        headline: 'Default Headline',
-        claim: 'Default Claim',
-        secondaryColor: true,
-      },
-      image: {
-        url: '_assets/XStage/01_ensemblehaus-freiburg-low-res.png',
-        alt: 'Default Alt Text',
-        align: 'top',
-      },
-    };
-  }
-  public static componentName = 'x-stage';
+	protected get defaultProps() {
+		return {
+			headline: "Default Headline",
+			claim: "Default Claim",
+			secondaryColor: true,
+			image: {
+				url: "_assets/XStage/01_ensemblehaus-freiburg-low-res.png",
+				alt: "Default Alt Text",
+				align: "top"
+			}
+		};
+	}
+	public static componentName = "x-stage";
 
-  public static attributes = [
-    {
-      name: 'text',
-      converter: (s: string): ComponentOptions => JSON.parse(s),
-    },
-    {
-      name: 'image',
-      converter: (s: string): ComponentOptions => JSON.parse(s),
-    },
-  ];
+	static attributes = [
+		"headline",
+		"claim",
+		{ name: "secondaryColor", converter: value => value != null },
+		{ name: "image", converter: value => JSON.parse(value) }
+	];
 
-  constructor() {
-    super();
-  }
-
-  public render() {
-    return template(this.html, this.props, this.createStyle);
-  }
+	public render() {
+		return template(this.html, this.props, this.createStyle);
+	}
 }
 
 export default XStage;

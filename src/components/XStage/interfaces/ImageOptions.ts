@@ -1,5 +1,5 @@
 export interface ImageOptions {
-  url: string;
-  alt: string;
-  align: string;
+	url: string;
+	alt: string;
+	align?: string;
 }

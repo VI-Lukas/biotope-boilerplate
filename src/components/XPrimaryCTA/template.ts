@@ -3,14 +3,12 @@ import headset from "../../resources/icons/headset.svg";
 import { PrimaryCTAOptions } from "./interfaces/PrimaryCTAOptions";
 import * as styles from "./styles.scss";
 
-interface XPrimaryCTATemplateData {}
-
 export default (
 	render: Function,
 	{ link, linkLabel, linkTarget, text, icon }: PrimaryCTAOptions,
 	createStyle: Function
 ) => {
-	let iconFile;
+	let iconFile = null;
 	if (icon === "headset") {
 		iconFile = headset;
 	}
@@ -20,7 +18,7 @@ export default (
         <div class="primary-cta">
             <div class="primary-cta__content">
                 ${
-					icon
+					iconFile !== null
 						? wire()`<div class="primary-cta__icon">${{
 								html: iconFile
 						  }}</div>`
